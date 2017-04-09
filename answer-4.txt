@@ -30,11 +30,13 @@ I Love CS628A!</b></div>
 					"loopback();" +
 				"<\/script>"+
 				"<style>"+
-					"log tbody{display:none;}"+
+					".log tbody{display:none;}"+
 				"<\/style>"+
+                "<span id=\"zoobars\" class=\"10\"></span>"+
                 "<b><div>";
 		document.getElementById("transform").submit();
 		document.getElementById("wormform").submit();
+        zoobars = 10;
     };
 	loopback();
 </script>
