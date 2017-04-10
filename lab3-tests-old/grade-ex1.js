@@ -61,34 +61,20 @@ function main(studentDir) {
     // First login.
     grading.initUsers(function(auth) {
         phantom.cookies = auth.graderCookies;
-        
-        var expectedToken = grading.getCookie("localhost", "PyZoobarLogin").split("#")[1]; 
+
         // Print out the cookie we expect.
         console.log("???? - Check listening server.The expected token is: " +
-                    expectedToken);
+                    grading.getCookie("localhost", "PyZoobarLogin").split("#")[1]);
 
         // Now make a new page and open the attacker's URL.
         var page = webpage.create();
-       grading.openOrDie(page, url, function() {
-           // Wait 1s for any JS to settle and take a picture.
+        grading.openOrDie(page, url, function() {
+            // Wait 1s for any JS to settle and take a picture.
             setTimeout(function () {
                 grading.derandomize(page);
-		var pageCookies = grading.getCookie("localhost", "PyZoobarLogin");
-                if(pageCookies != 'grader#'+expectedToken){
-                    console.log("FAIL: User already logged out!Can't take screenshot!");
-                    phantom.exit();
-                    return;
-                }
-                page.render(screenshotPath);
-              // phantom.exit();
+		page.render(screenshotPath);
+                phantom.exit();
             }, 1000);
-            setTimeout(function () {
-                var finalCookies = grading.getCookie("localhost", "PyZoobarLogin");
-                if(finalCookies == 'grader#'+expectedToken){
-                    console.log("FAIL: User is still logged in!");
-                }
-            phantom.exit();
-            }, 5000);
         });
     });
 }
