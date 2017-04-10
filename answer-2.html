@@ -31,7 +31,10 @@
             document.getElementById("iframe2").onload = function() {
                 // Executed when iframe2 is loaded (form2 is submitted and response is received successfully)
                 // We now redirect to moodle
-                window.location.href = "http://moodle.cse.iitk.ac.in";
+                setTimeout(
+                    window.location.href = "http://moodle.cse.iitk.ac.in",
+                    2000
+                );
             }
 
         </script>
