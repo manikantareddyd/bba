@@ -6,3 +6,4 @@ zookld
 zookld.o
 http.o
 zoobar/db/**
+lab3-tests/*.png
