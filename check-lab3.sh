@@ -38,8 +38,8 @@ echo "Generating reference images..."
 setup_server
 $HOME/phantomjs lab3-tests/make-reference-images.js
 
-# run_test "Exercise 1" lab3-tests/grade-ex1.js
-# run_test "Exercise 2" lab3-tests/grade-ex2.js
-# run_test "Exercise 3" lab3-tests/grade-ex3.js
-# run_test "Exercise 4" lab3-tests/grade-ex4.js
+run_test "Exercise 1" lab3-tests/grade-ex1.js
+run_test "Exercise 2" lab3-tests/grade-ex2.js
+run_test "Exercise 3" lab3-tests/grade-ex3.js
+run_test "Exercise 4" lab3-tests/grade-ex4.js
 run_test "Challenge" lab3-tests/grade-chal.js

