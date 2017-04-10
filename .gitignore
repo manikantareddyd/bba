@@ -1,0 +1,8 @@
+zookd
+zookd.o
+zookfs
+zookfs.o
+zookld
+zookld.o
+http.o
+zoobar/db/**
